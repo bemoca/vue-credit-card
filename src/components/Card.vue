@@ -86,15 +86,15 @@ Vue.directive('card-focus', {
   // When the bound element is inserted into the DOM...
   inserted: function (el) {
     const toggleFocusState = (type) => () => {
-      classDisplay[el.name]['jp-card-focused'] = type === 'focus'
+      classDisplay[el.id]['jp-card-focused'] = type === 'focus'
 
-      stateCard.toInvert = type === 'focus' && el.name === 'cvc'
+      stateCard.toInvert = type === 'focus' && el.id === 'cvc'
     }
 
     el.onfocus = toggleFocusState('focus')
     el.onblur = toggleFocusState('blur')
 
-    if (el.name === 'cvc') Payment.formatCardCVC(el)
+    if (el.id === 'cvc') Payment.formatCardCVC(el)
   }
 })
 
