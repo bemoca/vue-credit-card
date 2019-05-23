@@ -88,13 +88,13 @@ Vue.directive('card-focus', {
     const toggleFocusState = (type) => () => {
       classDisplay[el.id]['jp-card-focused'] = type === 'focus'
 
-      stateCard.toInvert = type === 'focus' && el.id === 'cvc'
+      stateCard.toInvert = type === 'focus' && el.id === 'securityCode'
     }
 
     el.onfocus = toggleFocusState('focus')
     el.onblur = toggleFocusState('blur')
 
-    if (el.id === 'cvc') Payment.formatCardCVC(el)
+    if (el.id === 'securityCode') Payment.formatCardCVC(el)
   }
 })
 
